@@ -1,15 +1,48 @@
+import { useState } from 'react'
+
 import './App.css'
+import fetchDefinition from './functions/fetchDefinition'
+
 
 function App() {
+    const [value, setValue] = useState('')
 
 
-  return (
-    <div>
-        <h1>Search for a definition</h1>
+    function handleSubmit(e) {
+        e.preventDefault();
 
-        <p>placeholder search box</p>
-    </div>
-  )
+        if (!value) {
+            return
+        }
+
+        console.log('fetching definition for...', value)
+
+        const definition = fetchDefinition(value) // will be async
+
+        setValue('')
+    }
+
+
+    return (
+        <div>
+            <h1>Dictionary</h1>
+
+            <form
+                id='searchForm'
+                data-testid='searchForm'
+                onSubmit={handleSubmit}
+            >
+                <label htmlFor='searchInput'>Search for a definition: </label>
+                <input
+                    id='searchInput'
+                    data-testid='searchInput'
+                    type='text'
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </form>
+        </div>
+    )
 }
 
 export default App

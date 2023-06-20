@@ -52,6 +52,7 @@ const placeholderDef = [
 
 
 
-export default function fetchDefinition() {
+export default function fetchDefinition(word) {
+    console.log('searching for ', word)
     return placeholderDef
 }
