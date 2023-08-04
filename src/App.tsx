@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import './App.css'
 import fetchDefinition from './functions/fetchDefinition'
+import DefinitionCard from './components/DefintionCard'
 
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
                     onChange={(e) => setValue(e.target.value)}
                 />
             </form>
+
+            <DefinitionCard>
+                {value}
+            </DefinitionCard>
         </main>
     )
 }
