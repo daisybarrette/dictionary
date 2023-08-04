@@ -24,7 +24,7 @@ function App() {
 
 
     return (
-        <div>
+        <main>
             <h1>Dictionary</h1>
 
             <form
@@ -41,7 +41,7 @@ function App() {
                     onChange={(e) => setValue(e.target.value)}
                 />
             </form>
-        </div>
+        </main>
     )
 }
 
