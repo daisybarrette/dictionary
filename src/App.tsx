@@ -8,7 +8,8 @@ function App() {
     const [value, setValue] = useState('')
 
 
-    function handleSubmit(e) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function handleSubmit(e: any) {
         e.preventDefault();
 
         if (!value) {
@@ -18,6 +19,7 @@ function App() {
         console.log('fetching definition for...', value)
 
         const definition = fetchDefinition(value) // will be async
+        console.log('definition is...', definition)
 
         setValue('')
     }
