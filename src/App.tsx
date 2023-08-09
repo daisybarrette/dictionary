@@ -7,8 +7,9 @@ import DefinitionCard from './components/DefintionCard'
 
 function App() {
     const [value, setValue] = useState('')
+    const [definition, setDefintion] = useState({})
 
-
+    // @TODO clean up
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function handleSubmit(e: any) {
         e.preventDefault();
@@ -22,9 +23,9 @@ function App() {
         const definition = fetchDefinition(value) // will be async
         console.log('definition is...', definition)
 
+        setDefintion(definition)
         setValue('')
     }
-
 
     return (
         <main>
@@ -45,9 +46,7 @@ function App() {
                 />
             </form>
 
-            <DefinitionCard>
-                {value}
-            </DefinitionCard>
+            <DefinitionCard definition={definition} />
         </main>
     )
 }
