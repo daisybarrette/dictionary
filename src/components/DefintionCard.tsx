@@ -1,13 +1,17 @@
 type DefinitionCardProps = {
-    children: React.ReactNode,
+    definition: {
+        word?: string,
+        origin?: string,
+        meanings?: Array<object>,
+    },
 }
 
-export default function DefinitionCard({ children }: DefinitionCardProps) {
-    console.log(children)
+export default function DefinitionCard({ definition }: DefinitionCardProps) {
+    console.log('my def in the card comp is... ',definition)
 
-    const shouldShowPlaceholder = children === ''
-        ? true
-        : false
+    const shouldShowPlaceholder = Object.keys(definition).length !== 0
+        ? false
+        : true
 
     return (
         shouldShowPlaceholder ?
@@ -16,7 +20,13 @@ export default function DefinitionCard({ children }: DefinitionCardProps) {
             </div>
             :
             <div className="definition">
-                {children}
+                <div>{definition.word}</div>
+                <div>{definition.origin}</div>
+
+                <ul>
+                    {/* Object.keys(definition.meanings).map(key => <li>{`${key}: definition.meanings[key]`}</li>) */}
+                </ul>
+
             </div>
     )
 }
