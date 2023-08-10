@@ -31,8 +31,6 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
 
 export default function DefinitionCard({ definition }: DefinitionCardProps) {
-    console.log('my def in the card comp is... ', definition, typeof definition)
-
     //@TODO rework loading state logic
     const shouldShowPlaceholder = definition.word === ''
         ? true

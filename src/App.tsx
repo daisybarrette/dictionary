@@ -19,12 +19,11 @@ function App() {
         const getDefinition = async () => {
             try {
                 const response = await fetchDefinition(word)
-
-                console.log(response)
                 setDefintion(response)
             }
 
             catch (err) {
+                // @TODO set error state
                 console.log(err)
             }
 
@@ -48,8 +47,6 @@ function App() {
         if (!value) {
             return
         }
-
-        console.log('form submitted')
 
         setWord(value)
         setValue('')
