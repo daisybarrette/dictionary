@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import './App.css'
 import fetchDefinition from './functions/fetchDefinition'
@@ -6,8 +6,39 @@ import DefinitionCard from './components/DefintionCard'
 
 
 function App() {
-    const [value, setValue] = useState('')
-    const [definition, setDefintion] = useState({})
+    const [value, setValue] = useState('') // current value in input
+    const [word, setWord] = useState('') // submitted word to search for
+    const [definition, setDefintion] = useState({
+        word: '',
+        phonetic: '',
+        meanings: [],
+    }) // definition returned from API
+
+
+    useEffect(() => {
+        const getDefinition = async () => {
+            try {
+                const response = await fetchDefinition(word)
+
+                console.log(response)
+                setDefintion(response)
+            }
+
+            catch (err) {
+                console.log(err)
+            }
+
+            finally {
+                // @TODO update loading state here
+                console.log('fetched')
+            }
+        }
+
+        if (word !== '') {
+            getDefinition()
+        }
+
+    }, [word])
 
     // @TODO clean up
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,12 +49,9 @@ function App() {
             return
         }
 
-        console.log('fetching definition for...', value)
+        console.log('form submitted')
 
-        const definition = fetchDefinition(value) // will be async
-        console.log('definition is...', definition)
-
-        setDefintion(definition)
+        setWord(value)
         setValue('')
     }
 
