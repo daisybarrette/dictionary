@@ -31,7 +31,6 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
 
 export default function DefinitionCard({ definition }: DefinitionCardProps) {
-    //@TODO rework loading state logic
     const shouldShowPlaceholder = definition.word === ''
         ? true
         : false

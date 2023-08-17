@@ -6,6 +6,9 @@ import DefinitionCard from './components/DefintionCard'
 
 
 function App() {
+    const [isFetching, setIsFetching] = useState(false)
+    const [hasError, setHasError] = useState(false)
+
     const [value, setValue] = useState('') // current value in input
     const [word, setWord] = useState('') // submitted word to search for
     const [definition, setDefintion] = useState({
@@ -17,19 +20,25 @@ function App() {
 
     useEffect(() => {
         const getDefinition = async () => {
+            setIsFetching(true)
+            setHasError(false)
+
             try {
                 const response = await fetchDefinition(word)
+
+                if (response.word === '') {
+                    setHasError(true)
+                }
+
                 setDefintion(response)
             }
 
             catch (err) {
-                // @TODO set error state
-                console.log(err)
+                setHasError(true)
             }
 
             finally {
-                // @TODO update loading state here
-                console.log('fetched')
+                setIsFetching(false)
             }
         }
 
@@ -52,6 +61,12 @@ function App() {
         setValue('')
     }
 
+    const ComponentToDisplay = isFetching
+        ? Spinner
+        : hasError
+            ? Error
+            : DefinitionCard
+
     return (
         <main>
             <h1>Dictionary</h1>
@@ -71,9 +86,13 @@ function App() {
                 />
             </form>
 
-            <DefinitionCard definition={definition} />
+            <ComponentToDisplay definition={definition} />
         </main>
     )
 }
+
+// @TODO extract to separate components, style
+const Spinner = () => <div>'spinner here'</div>
+const Error = () => <div>'ERROR here'</div>
 
 export default App
