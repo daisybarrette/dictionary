@@ -19,7 +19,7 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
     // @TODO extract to presentational component
     return <div className="definition">
-        <div>{definition.word}</div>
+        <div className="word">{definition.word}</div>
 
         <div>{definition.phonetic}</div>
 

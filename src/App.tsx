@@ -68,26 +68,29 @@ function App() {
             : DefinitionCard
 
     return (
-        <main>
-            <h1>Dictionary</h1>
+        <>
+            <h1><a href="/">Dictionary</a></h1>
 
-            <form
-                id='searchForm'
-                data-testid='searchForm'
-                onSubmit={handleSubmit}
-            >
-                <label htmlFor='searchInput'>Search for a definition: </label>
-                <input
-                    id='searchInput'
-                    data-testid='searchInput'
-                    type='text'
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                />
-            </form>
+            <main className='glass'>
+                <form
+                    id='searchForm'
+                    data-testid='searchForm'
+                    onSubmit={handleSubmit}
+                >
+                    <label htmlFor='searchInput'>Search for a definition: </label>
 
-            <ComponentToDisplay definition={definition} />
-        </main>
+                    <input
+                        id='searchInput'
+                        data-testid='searchInput'
+                        type='text'
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                    />
+                </form>
+
+                <ComponentToDisplay definition={definition} />
+            </main>
+        </>
     )
 }
 

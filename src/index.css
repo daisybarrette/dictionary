@@ -1,5 +1,6 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'EB Garamond', serif;
+
     line-height: 1.5;
     font-weight: 400;
 
@@ -9,6 +10,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
 
+    /* @TODO rework palette */
     --black: #000;
     --claret: #8b1e3f;
     --dark-purple: #3c153b;
@@ -23,18 +25,23 @@ html {
     background-color: var(--cambridge-blue);
     color: var(--black);
 
-    background-color: #89bd9e;
+    background-color: white;
     opacity: 1;
     background-image: linear-gradient(#f0c987 8px, transparent 8px),
         linear-gradient(90deg, #f0c987 8px, transparent 8px), linear-gradient(#f0c987 4px, transparent 4px),
         linear-gradient(90deg, #f0c987 4px, #89bd9e 4px);
     background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px;
     background-position: -8px -8px, -8px -8px, -4px -4px, -4px -4px;
+
+    background: url('https://source.unsplash.com/WmnsGyaFnCQ');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-size: cover;
 }
 
 ::selection {
-    background-color: var(--claret);
-    color: var(--sunset);
+    background-color: yellow;
 }
 
 body {
@@ -43,14 +50,14 @@ body {
 }
 
 #root {
-    display: flex;
     min-height: 100vh;
-    justify-content: center;
+
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 main {
-    background-color: var(--sunset);
     padding: 1em 2em 4em;
     border-radius: var(--border-radius);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -58,15 +65,41 @@ main {
     margin-bottom: 20vh;
 }
 
+form {
+    font-size: 1.5em;
+}
+
+.glass {
+    background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(0.4rem);
+
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2), -1px -1px 1px white;
+}
+
+.word {
+    font-weight: 700;
+    font-size: 2em;
+}
+
 /* @TODO move to a better spot */
 .definition {
-    border-radius: var(--border-radius);
-    border: 5px solid var(--dark-purple);
+    padding-top: 4em;
 
-    padding: 4em;
+    max-width: 30em;
+    margin: auto;
+    text-align: left;
 }
 
 h1 {
-    font-size: 3.2em;
+    font-size: 3.3em;
+
     line-height: 1.1;
+    font-weight: 500;
+
+    font-family: 'Playfair Display', serif;
+}
+
+h1 a {
+    text-decoration: none;
+    color: black;
 }
