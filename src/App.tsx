@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import './App.css'
 import fetchDefinition from './functions/fetchDefinition'
 import DefinitionCard from './components/DefintionCard'
 import Spinner from './components/Spinner'
