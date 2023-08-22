@@ -37,9 +37,7 @@ export default function DefinitionCard({ definition }: DefinitionCardProps) {
 
     return (
         shouldShowPlaceholder ?
-            <div className="definition placeholder">
-                {'Search for a word'}
-            </div>
+            <></>
             :
             <div>{formatDefinition({ definition: definition })}</div>
     )

@@ -4,6 +4,7 @@ import './App.css'
 import fetchDefinition from './functions/fetchDefinition'
 import DefinitionCard from './components/DefintionCard'
 import Spinner from './components/Spinner'
+import Error from './components/Error'
 
 
 function App() {
@@ -89,13 +90,12 @@ function App() {
                     />
                 </form>
 
-                <ComponentToDisplay definition={definition} />
+                <div className='wrapper'>
+                    <ComponentToDisplay definition={definition} />
+                </div>
             </main>
         </>
     )
 }
-
-// @TODO extract to separate components, style
-const Error = () => <div>'ERROR here'</div>
 
 export default App
