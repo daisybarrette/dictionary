@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import fetchDefinition from './functions/fetchDefinition'
 import DefinitionCard from './components/DefintionCard'
+import Spinner from './components/Spinner'
 
 
 function App() {
@@ -95,7 +96,6 @@ function App() {
 }
 
 // @TODO extract to separate components, style
-const Spinner = () => <div>'spinner here'</div>
 const Error = () => <div>'ERROR here'</div>
 
 export default App
