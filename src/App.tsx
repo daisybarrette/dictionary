@@ -94,6 +94,11 @@ function App() {
                     <ComponentToDisplay definition={definition} />
                 </div>
             </main>
+
+            <footer className='glass'>
+                <div>by <a href='https://www.daisybarrette.com/'>Daisy Barrette</a> on{' '}
+                    <a href='https://github.com/daisybarrette/dictionary'>GitHub</a></div>
+            </footer>
         </>
     )
 }
