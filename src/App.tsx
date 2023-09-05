@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import fetchDefinition from './functions/fetchDefinition'
-import DefinitionCard from './components/DefintionCard'
+import DefinitionCard from './components/DefinitionCard'
 import Spinner from './components/Spinner'
 import Error from './components/Error'
 
