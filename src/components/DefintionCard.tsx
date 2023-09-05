@@ -1,17 +1,15 @@
 type DefinitionCardProps = {
     definition: {
-        word: string,
-        phonetic: string,
-        // audio?: string, //// should pass like this from fetch func
-
-        // @TODO specify structure
-        phonetics: Array<object>,
-
-        // @TODO specify structure
-        meanings: Array<object>,
-    },
+        word: string;
+        phonetic?: string;
+        phonetics?: [];
+        meanings?: [];
+        audioSrc?: string;
+        firstMeaning?: string;
+        partOfSpeech?: string;
+        firstDef?: string;
+    }
 }
-
 
 // @TODO extract to separate component
 function AudioPlayer({ audioSrc }: { audioSrc: string }) {
@@ -26,28 +24,10 @@ function AudioPlayer({ audioSrc }: { audioSrc: string }) {
 }
 
 function formatDefinition({ definition }: DefinitionCardProps) {
-    // @TODO clean up types
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const firstMeaning: { [key: string]: any } = definition.meanings[0]
-
-    const partOfSpeech = firstMeaning['partOfSpeech']
-    const def1 = firstMeaning['definitions'][0]['definition']
-
-    // const hasAudio = !!definition.audio
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-
-    const phonetics = definition.phonetics[0]
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-
-    console.log(phonetics)
-
-    //// phonetics may be undefined
-
-    const audioSrc = phonetics ? phonetics['audio'] : null
-    const hasAudio = !!audioSrc //check if valid
-
-
+    const partOfSpeech = definition.partOfSpeech
+    const def1 = definition.firstDef
+    const audioSrc = definition.audioSrc
+    const hasAudio = !!audioSrc //check if audio available
 
     // @TODO extract to presentational component
     return <div className="definition">
@@ -56,8 +36,6 @@ function formatDefinition({ definition }: DefinitionCardProps) {
         <div>{definition.phonetic}</div>
 
         {hasAudio ? <AudioPlayer audioSrc={audioSrc} /> : <> </>}
-
-
 
         <div>{partOfSpeech}</div>
 
