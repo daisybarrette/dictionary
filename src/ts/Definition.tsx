@@ -17,17 +17,8 @@ type Meaning = {
 type DefinitionFromAPI = {
     word: string;
     phonetic?: string;
-    // phonetics: Array<object> | []; // check this syntax
-
     phonetics: Phonetics[] | [];
-
-
     meanings: Meaning[];
-
-
-    // [key: string]: any, // 👈️ index signature
-    // [index: string]: string | object,
 }
-
 
 export default DefinitionFromAPI
