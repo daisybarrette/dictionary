@@ -13,12 +13,9 @@ type DefinitionCardProps = {
 
 // @TODO extract to separate component
 function AudioPlayer({ audioSrc }: { audioSrc: string }) {
-    console.log('audio src', audioSrc)
     return (
-        <figure>
-            <figcaption>Play audio:</figcaption>
-            <audio controls src={audioSrc}>
-            </audio>
+        <figure className="audio-player">
+            <audio controls src={audioSrc} />
         </figure>
     )
 }

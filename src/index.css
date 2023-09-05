@@ -104,6 +104,15 @@ form {
     max-width: 3em;
 }
 
+figure.audio-player {
+    margin: 0;
+}
+
+.audio-player audio {
+    border-radius: 1em;
+    max-width: 15em;
+}
+
 footer {
     margin: auto 0 0;
 
