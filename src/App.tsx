@@ -14,10 +14,7 @@ function App() {
     const [word, setWord] = useState('') // submitted word to search for
     const [definition, setDefintion] = useState({
         word: '',
-        phonetic: '',
-        meanings: [],
-    }) // definition returned from API
-
+    })
 
     useEffect(() => {
         const getDefinition = async () => {

@@ -1,27 +1,38 @@
 type DefinitionCardProps = {
     definition: {
-        word: string,
-        phonetic: string,
-
-        // @TODO specify structure
-        meanings: Array<object>,
-    },
+        word: string;
+        phonetic?: string;
+        phonetics?: [];
+        meanings?: [];
+        audioSrc?: string;
+        firstMeaning?: string;
+        partOfSpeech?: string;
+        firstDef?: string;
+    }
 }
 
+// @TODO extract to separate component
+function AudioPlayer({ audioSrc }: { audioSrc: string }) {
+    return (
+        <figure className="audio-player">
+            <audio controls src={audioSrc} />
+        </figure>
+    )
+}
 
 function formatDefinition({ definition }: DefinitionCardProps) {
-    // @TODO clean up types
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const firstMeaning: { [key: string]: any } = definition.meanings[0]
-
-    const partOfSpeech = firstMeaning['partOfSpeech']
-    const def1 = firstMeaning['definitions'][0]['definition']
+    const partOfSpeech = definition.partOfSpeech
+    const def1 = definition.firstDef
+    const audioSrc = definition.audioSrc
+    const hasAudio = !!audioSrc //check if audio available
 
     // @TODO extract to presentational component
     return <div className="definition">
         <div className="word">{definition.word}</div>
 
         <div>{definition.phonetic}</div>
+
+        {hasAudio ? <AudioPlayer audioSrc={audioSrc} /> : <> </>}
 
         <div>{partOfSpeech}</div>
 
