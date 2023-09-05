@@ -1,3 +1,5 @@
+import AccordionContainer from "./AccordionContainer";
+
 type DefinitionCardProps = {
     definition: {
         word: string;
@@ -37,6 +39,8 @@ function formatDefinition({ definition }: DefinitionCardProps) {
         <div>{partOfSpeech}</div>
 
         <div>{def1}</div>
+
+        <AccordionContainer />
     </div>
 }
 

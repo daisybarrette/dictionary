@@ -113,6 +113,23 @@ figure.audio-player {
     max-width: 15em;
 }
 
+
+.accordion-container {
+    border: 2px solid fuchsia;
+}
+
+.accordion-item {
+    background-color: lightgreen;
+}
+
+.accordion-item-title {
+    background: orange;
+}
+
+.accordion-item-content {
+    background: lightsteelblue;
+}
+
 footer {
     margin: auto 0 0;
 
