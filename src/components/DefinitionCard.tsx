@@ -1,4 +1,4 @@
-import AccordionContainer from "./AccordionContainer";
+import CollapsibleContainer from "./CollapsibleContainer";
 
 type DefinitionCardProps = {
     definition: {
@@ -40,7 +40,7 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
         <div>{def1}</div>
 
-        <AccordionContainer />
+        <CollapsibleContainer content="lorem ipsum dolor iset amentia" />
     </div>
 }
 

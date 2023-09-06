@@ -114,23 +114,14 @@ figure.audio-player {
     max-width: 15em;
 }
 
-.accordion-container {
+.collapsible-container {
     text-align: left;
-}
-
-ul.accordion-container {
     margin: 1em 0 0 0;
-    padding: 0;
 }
 
-li.accordion-item {
-    display: block;
-    list-style-type: none;
-}
-
-button.accordion-item-title {
+button.collapsible-title {
     background-color: transparent;
-    padding: 0;
+    padding: 0.5em 0;
     border: none;
     font-family: inherit;
     font-size: inherit;
@@ -138,19 +129,19 @@ button.accordion-item-title {
     text-decoration: wavy underline;
 }
 
-button.accordion-item-title:hover {
+button.collapsible-title:hover {
     text-decoration: underline;
     color: var(--claret);
 }
 
-.accordion-item-content {
+.collapsible-content {
     transition: all 3s ease;
 
     background-color: var(--white);
     margin-bottom: 1em;
 }
 
-.is-expanded.accordion-item-content {
+.is-expanded.collapsible-content {
     background-color: transparent;
 }
 
