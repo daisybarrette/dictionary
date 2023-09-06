@@ -1,4 +1,4 @@
-import CollapsibleContainer from "./CollapsibleContainer";
+// import CollapsibleContainer from "./CollapsibleContainer";
 
 type DefinitionCardProps = {
     definition: {
