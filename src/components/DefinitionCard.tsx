@@ -40,7 +40,8 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
         <div>{def1}</div>
 
-        <CollapsibleContainer content="lorem ipsum dolor iset amentia" />
+        {/* @TODO add more meanings here */}
+        {/* <CollapsibleContainer content="lorem ipsum dolor iset amentia" /> */}
     </div>
 }
 
