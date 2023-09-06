@@ -1,3 +1,5 @@
+// import CollapsibleContainer from "./CollapsibleContainer";
+
 type DefinitionCardProps = {
     definition: {
         word: string;
@@ -37,6 +39,9 @@ function formatDefinition({ definition }: DefinitionCardProps) {
         <div>{partOfSpeech}</div>
 
         <div>{def1}</div>
+
+        {/* @TODO add more meanings here */}
+        {/* <CollapsibleContainer content="lorem ipsum dolor iset amentia" /> */}
     </div>
 }
 
