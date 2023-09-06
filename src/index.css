@@ -127,7 +127,13 @@ figure.audio-player {
 }
 
 .accordion-item-content {
-    background: lightsteelblue;
+    background-color: yellow;
+    transition: all 1s ease;
+    margin-bottom: 1em;
+}
+
+.is-expanded.accordion-item-content {
+    background-color: lightsteelblue;
 }
 
 footer {
