@@ -31,17 +31,19 @@ function AudioPlayer({ audioSrc }: { audioSrc: string }) {
 function formatMeanings({ meanings }: { meanings: any }) {
     return (
         <div className="formattedMeanings">
-            {meanings.map(
-                (meaning: FormattedMeanings, index: number) => (
-                    <div key={`${index}-${meaning.partOfSpeech}`}>
-                        <div>{meaning.partOfSpeech}</div>
+            {meanings.map((meaning: FormattedMeanings, index: number) => (
+                <div key={`${index}-${meaning.partOfSpeech}`}>
+                    <div>{meaning.partOfSpeech}</div>
 
-                        <ul>
-                            {meaning.defs.map(def => (<li key={def}>{def}</li>))}
-                        </ul>
-                    </div>
-                )
-            )}
+                    <ul>
+                        {meaning.defs.map(def => (
+                            <li key={def}>
+                                {def}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
         </div>
     )
 }

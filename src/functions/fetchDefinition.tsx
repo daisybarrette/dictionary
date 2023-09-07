@@ -15,8 +15,6 @@ function formatDefinition(definition: DefinitionFromAPI) {
 
     const audioSrc = definition.phonetics[0]?.audio
 
-    // const formattedMeanings = []
-    // @TODO do a map instead
     const formattedMeanings = definition.meanings.map((meaning) => ({
         partOfSpeech: meaning.partOfSpeech,
         defs: meaning.definitions.map(item => item.definition),
