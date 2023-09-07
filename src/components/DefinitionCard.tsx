@@ -1,4 +1,4 @@
-// import CollapsibleContainer from "./CollapsibleContainer";
+import CollapsibleContainer from "./CollapsibleContainer";
 
 type DefinitionCardProps = {
     definition: {
@@ -10,6 +10,7 @@ type DefinitionCardProps = {
         firstMeaning?: string;
         partOfSpeech?: string;
         firstDef?: string;
+        formattedMeanings: [];
     }
 }
 
@@ -22,12 +23,35 @@ function AudioPlayer({ audioSrc }: { audioSrc: string }) {
     )
 }
 
+function formatMeanings({ meanings }: { meanings: any }) {
+    console.log(meanings)
+    return (
+        <div className="formattedMeanings">
+            {meanings.map(
+                meaning => (
+                    <>
+                        <div>{meaning.partOfSpeech}</div>
+
+                        <ul>
+                            {meaning.defs.map(def => (<li key={def}>{def}</li>))}
+                        </ul></>
+                )
+            )}
+        </div>
+    )
+}
+
 function formatDefinition({ definition }: DefinitionCardProps) {
     const partOfSpeech = definition.partOfSpeech
     const def1 = definition.firstDef
     const audioSrc = definition.audioSrc
     const hasAudio = !!audioSrc //check if audio available
 
+    const hasOtherMeanings = definition.formattedMeanings.length > 1
+
+    console.log(hasOtherMeanings)
+
+    console.log('definition.formattedMeanings', definition.formattedMeanings)
     // @TODO extract to presentational component
     return <div className="definition">
         <div className="word">{definition.word}</div>
@@ -42,6 +66,15 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
         {/* @TODO add more meanings here */}
         {/* <CollapsibleContainer content="lorem ipsum dolor iset amentia" /> */}
+        {/* <CollapsibleContainer> */}
+
+
+            <div>
+                {hasOtherMeanings ?
+                <CollapsibleContainer content="test">
+                        {formatMeanings({ meanings: definition.formattedMeanings })}
+                    </CollapsibleContainer> : <></>}
+            </div>
     </div>
 }
 
