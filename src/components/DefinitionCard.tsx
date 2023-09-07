@@ -5,7 +5,6 @@ type DefinitionCardProps = {
         word: string;
         phonetic?: string;
         phonetics?: [];
-        meanings?: [];
         audioSrc?: string;
         firstMeaning?: string;
         partOfSpeech?: string;
