@@ -1,4 +1,6 @@
 import CollapsibleContainer from "./CollapsibleContainer";
+import AudioPlayer from "./AudioPlayer";
+
 
 type DefinitionCardProps = {
     definition: {
@@ -16,15 +18,6 @@ type DefinitionCardProps = {
 type FormattedMeanings = {
     partOfSpeech: string;
     defs: string[];
-}
-
-// @TODO extract to separate component
-function AudioPlayer({ audioSrc }: { audioSrc: string }) {
-    return (
-        <figure className="audio-player">
-            <audio controls src={audioSrc} />
-        </figure>
-    )
 }
 
 function formatMeanings({ meanings }: { meanings: any }) {
