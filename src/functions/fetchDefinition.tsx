@@ -9,30 +9,18 @@ const emptyDefinition = {
     audioSrc: '',
 }
 
-
-// function formatMeanings() {}
-
 function formatDefinition(definition: DefinitionFromAPI) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const firstMeaning: { [key: string]: any } = definition.meanings[0]
 
     const audioSrc = definition.phonetics[0]?.audio
 
-    const formattedMeanings = []
+    // const formattedMeanings = []
     // @TODO do a map instead
-    const newVar = definition.meanings.forEach((meaning, index) => {
-
-        console.log(index, 'meaning', meaning)
-
-
-        formattedMeanings.push({
-            partOfSpeech: meaning.partOfSpeech,
-            defs: meaning.definitions.map(item => item.definition),
-            // synonyms: meaning.synonyms,
-            // antonyms: meaning.antonyms,
-        })
-    })
-
+    const formattedMeanings = definition.meanings.map((meaning) => ({
+        partOfSpeech: meaning.partOfSpeech,
+        defs: meaning.definitions.map(item => item.definition),
+    }))
 
     console.log('formatted meanings in fetch func', formattedMeanings)
 
@@ -51,14 +39,8 @@ function formatDefinition(definition: DefinitionFromAPI) {
         audioSrc: audioSrc ?? '',
     }
 
-
-
-
-
-
     return formattedDef
 }
-
 
 export default async function fetchDefinition(word: string) {
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)

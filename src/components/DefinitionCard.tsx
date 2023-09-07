@@ -10,7 +10,7 @@ type DefinitionCardProps = {
         firstMeaning?: string;
         partOfSpeech?: string;
         firstDef?: string;
-        formattedMeanings: [];
+        formattedMeanings?: [];
     }
 }
 
@@ -64,17 +64,12 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
         <div>{def1}</div>
 
-        {/* @TODO add more meanings here */}
-        {/* <CollapsibleContainer content="lorem ipsum dolor iset amentia" /> */}
-        {/* <CollapsibleContainer> */}
-
-
-            <div>
-                {hasOtherMeanings ?
-                <CollapsibleContainer content="test">
-                        {formatMeanings({ meanings: definition.formattedMeanings })}
-                    </CollapsibleContainer> : <></>}
-            </div>
+        <div>
+            {hasOtherMeanings ?
+                <CollapsibleContainer>
+                    {formatMeanings({ meanings: definition.formattedMeanings })}
+                </CollapsibleContainer> : <></>}
+        </div>
     </div>
 }
 
