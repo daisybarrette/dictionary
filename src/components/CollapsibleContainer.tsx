@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function CollapsibleContainer({ content }: { content: string }) {
+export default function CollapsibleContainer({ children }: { children: React.ReactNode }) {
     const [isExpanded, setIsExpanded] = useState(false)
 
     const classNameForContent = isExpanded ? 'collapsible-content is-expanded' : 'collapsible-content'
@@ -12,7 +12,7 @@ export default function CollapsibleContainer({ content }: { content: string }) {
             <button className="collapsible-title" onClick={() => setIsExpanded(!isExpanded)}>{conditionalTitle}</button>
 
             <div className={classNameForContent}>
-                {isExpanded && content}
+                {isExpanded && children}
             </div>
         </div>
     )
