@@ -14,6 +14,11 @@ type DefinitionCardProps = {
     }
 }
 
+type FormattedMeanings = {
+    partOfSpeech: string;
+    defs: string[];
+}
+
 // @TODO extract to separate component
 function AudioPlayer({ audioSrc }: { audioSrc: string }) {
     return (
@@ -28,13 +33,14 @@ function formatMeanings({ meanings }: { meanings: any }) {
     return (
         <div className="formattedMeanings">
             {meanings.map(
-                meaning => (
-                    <>
+                (meaning: FormattedMeanings, index: number) => (
+                    <div key={`${index}-${meaning.partOfSpeech}`}>
                         <div>{meaning.partOfSpeech}</div>
 
                         <ul>
                             {meaning.defs.map(def => (<li key={def}>{def}</li>))}
-                        </ul></>
+                        </ul>
+                    </div>
                 )
             )}
         </div>
@@ -47,7 +53,9 @@ function formatDefinition({ definition }: DefinitionCardProps) {
     const audioSrc = definition.audioSrc
     const hasAudio = !!audioSrc //check if audio available
 
-    const hasOtherMeanings = definition.formattedMeanings.length > 1
+    const hasOtherMeanings = definition?.formattedMeanings
+        ? definition?.formattedMeanings.length > 1
+        : false
 
     console.log(hasOtherMeanings)
 
