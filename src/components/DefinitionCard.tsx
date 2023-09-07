@@ -29,7 +29,6 @@ function AudioPlayer({ audioSrc }: { audioSrc: string }) {
 }
 
 function formatMeanings({ meanings }: { meanings: any }) {
-    console.log(meanings)
     return (
         <div className="formattedMeanings">
             {meanings.map(
@@ -57,9 +56,6 @@ function formatDefinition({ definition }: DefinitionCardProps) {
         ? definition?.formattedMeanings.length > 1
         : false
 
-    console.log(hasOtherMeanings)
-
-    console.log('definition.formattedMeanings', definition.formattedMeanings)
     // @TODO extract to presentational component
     return <div className="definition">
         <div className="word">{definition.word}</div>

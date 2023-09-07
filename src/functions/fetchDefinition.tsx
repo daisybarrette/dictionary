@@ -22,8 +22,6 @@ function formatDefinition(definition: DefinitionFromAPI) {
         defs: meaning.definitions.map(item => item.definition),
     }))
 
-    console.log('formatted meanings in fetch func', formattedMeanings)
-
     // Reshape API response into just the data we care about
     const formattedDef = {
         word: definition.word,
