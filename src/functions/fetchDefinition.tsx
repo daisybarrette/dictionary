@@ -15,6 +15,11 @@ function formatDefinition(definition: DefinitionFromAPI) {
 
     const audioSrc = definition.phonetics[0]?.audio
 
+    const formattedMeanings = definition.meanings.map((meaning) => ({
+        partOfSpeech: meaning.partOfSpeech,
+        defs: meaning.definitions.map(item => item.definition),
+    }))
+
     // Reshape API response into just the data we care about
     const formattedDef = {
         word: definition.word,
@@ -26,12 +31,12 @@ function formatDefinition(definition: DefinitionFromAPI) {
         partOfSpeech: firstMeaning['partOfSpeech'],
         firstDef: firstMeaning['definitions'][0]['definition'],
 
+        formattedMeanings: formattedMeanings,
         audioSrc: audioSrc ?? '',
     }
 
     return formattedDef
 }
-
 
 export default async function fetchDefinition(word: string) {
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)

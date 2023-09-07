@@ -1,4 +1,4 @@
-// import CollapsibleContainer from "./CollapsibleContainer";
+import CollapsibleContainer from "./CollapsibleContainer";
 
 type DefinitionCardProps = {
     definition: {
@@ -10,7 +10,13 @@ type DefinitionCardProps = {
         firstMeaning?: string;
         partOfSpeech?: string;
         firstDef?: string;
+        formattedMeanings?: [];
     }
+}
+
+type FormattedMeanings = {
+    partOfSpeech: string;
+    defs: string[];
 }
 
 // @TODO extract to separate component
@@ -22,11 +28,35 @@ function AudioPlayer({ audioSrc }: { audioSrc: string }) {
     )
 }
 
+function formatMeanings({ meanings }: { meanings: any }) {
+    return (
+        <div className="formattedMeanings">
+            {meanings.map((meaning: FormattedMeanings, index: number) => (
+                <div key={`${index}-${meaning.partOfSpeech}`}>
+                    <div>{meaning.partOfSpeech}</div>
+
+                    <ul>
+                        {meaning.defs.map(def => (
+                            <li key={def}>
+                                {def}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
+        </div>
+    )
+}
+
 function formatDefinition({ definition }: DefinitionCardProps) {
     const partOfSpeech = definition.partOfSpeech
     const def1 = definition.firstDef
     const audioSrc = definition.audioSrc
     const hasAudio = !!audioSrc //check if audio available
+
+    const hasOtherMeanings = definition?.formattedMeanings
+        ? definition?.formattedMeanings.length > 1
+        : false
 
     // @TODO extract to presentational component
     return <div className="definition">
@@ -40,8 +70,12 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
         <div>{def1}</div>
 
-        {/* @TODO add more meanings here */}
-        {/* <CollapsibleContainer content="lorem ipsum dolor iset amentia" /> */}
+        <div>
+            {hasOtherMeanings ?
+                <CollapsibleContainer>
+                    {formatMeanings({ meanings: definition.formattedMeanings })}
+                </CollapsibleContainer> : <></>}
+        </div>
     </div>
 }
 

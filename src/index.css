@@ -46,6 +46,7 @@ body {
 
 main {
     padding: 1em 2em 3em;
+    margin-bottom: 1.5em;
     text-align: center;
 
     border-radius: var(--border-radius);
@@ -81,7 +82,7 @@ form {
 }
 
 .wrapper {
-    max-width: 30em;
+    max-width: 26em;
     margin: auto;
 }
 
@@ -139,6 +140,7 @@ button.collapsible-title:hover {
 
     background-color: var(--white);
     margin-bottom: 1em;
+    border-radius: var(--border-radius);
 }
 
 .is-expanded.collapsible-content {
