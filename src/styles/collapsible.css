@@ -1,0 +1,31 @@
+.collapsible-container {
+    text-align: left;
+    margin: 1em 0 0 0;
+}
+
+button.collapsible-title {
+    background-color: transparent;
+    padding: 0.5em 0;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    text-decoration: wavy underline;
+}
+
+button.collapsible-title:hover {
+    text-decoration: underline;
+    color: var(--claret);
+}
+
+.collapsible-content {
+    transition: all 3s ease;
+
+    background-color: var(--white);
+    margin-bottom: 1em;
+    border-radius: var(--border-radius);
+}
+
+.is-expanded.collapsible-content {
+    background-color: transparent;
+}
