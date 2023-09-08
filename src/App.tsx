@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, FormEvent } from 'react'
 
 import fetchDefinition from './functions/fetchDefinition'
 import DefinitionCard from './components/DefinitionCard'
@@ -46,9 +46,7 @@ function App() {
 
     }, [word])
 
-    // @TODO clean up
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function handleSubmit(e: any) {
+    function handleSubmit(e: FormEvent) {
         e.preventDefault();
 
         if (!value) {

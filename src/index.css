@@ -93,7 +93,6 @@ form {
 }
 
 .word {
-    font-weight: 700;
     font-size: 2em;
 }
 
@@ -147,6 +146,10 @@ button.collapsible-title:hover {
     background-color: transparent;
 }
 
+.formatted-meanings ul {
+    list-style-type: circle;
+}
+
 footer {
     margin: auto 0 0;
 
@@ -161,6 +164,10 @@ footer {
     backdrop-filter: blur(0.4rem);
 
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2), -1px -1px 1px var(--white);
+}
+
+.extra-bold {
+    font-weight: 700;
 }
 
 /* Animation from https://loading.io/css/ */

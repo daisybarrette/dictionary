@@ -1,11 +1,12 @@
 import CollapsibleContainer from "./CollapsibleContainer";
+import AudioPlayer from "./AudioPlayer";
+
 
 type DefinitionCardProps = {
     definition: {
         word: string;
         phonetic?: string;
         phonetics?: [];
-        meanings?: [];
         audioSrc?: string;
         firstMeaning?: string;
         partOfSpeech?: string;
@@ -19,21 +20,12 @@ type FormattedMeanings = {
     defs: string[];
 }
 
-// @TODO extract to separate component
-function AudioPlayer({ audioSrc }: { audioSrc: string }) {
-    return (
-        <figure className="audio-player">
-            <audio controls src={audioSrc} />
-        </figure>
-    )
-}
-
 function formatMeanings({ meanings }: { meanings: any }) {
     return (
-        <div className="formattedMeanings">
+        <div className="formatted-meanings">
             {meanings.map((meaning: FormattedMeanings, index: number) => (
                 <div key={`${index}-${meaning.partOfSpeech}`}>
-                    <div>{meaning.partOfSpeech}</div>
+                    <div className="extra-bold">{meaning.partOfSpeech}</div>
 
                     <ul>
                         {meaning.defs.map(def => (
@@ -60,13 +52,13 @@ function formatDefinition({ definition }: DefinitionCardProps) {
 
     // @TODO extract to presentational component
     return <div className="definition">
-        <div className="word">{definition.word}</div>
+        <div className="word extra-bold">{definition.word}</div>
 
         <div>{definition.phonetic}</div>
 
         {hasAudio ? <AudioPlayer audioSrc={audioSrc} /> : <> </>}
 
-        <div>{partOfSpeech}</div>
+        <div className="extra-bold">{partOfSpeech}</div>
 
         <div>{def1}</div>
 

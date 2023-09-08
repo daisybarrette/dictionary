@@ -24,8 +24,7 @@ function formatDefinition(definition: DefinitionFromAPI) {
     const formattedDef = {
         word: definition.word,
         phonetic: definition.phonetic ?? '',
-        phonetics: definition.phonetics, // API will return at least empty array
-        meanings: [firstMeaning], // @TODO probably actually want the original Meanings array here? or reformat inside
+        phonetics: definition.phonetics, // API will return an empty array if there is no content
 
         firstMeaning: firstMeaning,
         partOfSpeech: firstMeaning['partOfSpeech'],
