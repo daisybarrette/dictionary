@@ -24,7 +24,7 @@ button.collapsible-title:hover {
 }
 
 .is-dark-mode button.collapsible-title:hover {
-    color: var(--link-dm);
+    color: var(--pale-green);
 }
 
 .collapsible-content {
