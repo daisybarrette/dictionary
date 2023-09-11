@@ -1,5 +1,6 @@
 import CollapsibleContainer from "./CollapsibleContainer";
 import AudioPlayer from "./AudioPlayer";
+import '../styles/definition.css'
 
 
 type DefinitionCardProps = {
@@ -50,7 +51,6 @@ function formatDefinition({ definition }: DefinitionCardProps) {
         ? definition?.formattedMeanings.length > 1
         : false
 
-    // @TODO extract to presentational component
     return <div className="definition">
         <div className="word extra-bold">{definition.word}</div>
 

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../styles/collapsible.css'
 
 
 export default function CollapsibleContainer({ children }: { children: React.ReactNode }) {

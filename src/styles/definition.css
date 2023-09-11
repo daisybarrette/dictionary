@@ -1,0 +1,12 @@
+.definition {
+    text-align: left;
+    padding-top: 4em;
+}
+
+.word {
+    font-size: 2em;
+}
+
+.formatted-meanings ul {
+    list-style-type: circle;
+}
