@@ -11,6 +11,11 @@ button.collapsible-title {
     font-size: inherit;
     font-weight: 500;
     text-decoration: wavy underline;
+    color: var(--black);
+}
+
+.is-dark-mode button.collapsible-title {
+    color: var(--white);
 }
 
 button.collapsible-title:hover {
@@ -18,8 +23,12 @@ button.collapsible-title:hover {
     color: var(--claret);
 }
 
+.is-dark-mode button.collapsible-title:hover {
+    color: var(--link-dm);
+}
+
 .collapsible-content {
-    transition: all 3s ease;
+    transition: background 3s ease;
 
     background-color: var(--white);
     margin-bottom: 1em;
