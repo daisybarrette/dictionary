@@ -25,7 +25,13 @@ function App() {
     })
 
     useEffect(() => {
-        document.body.classList.toggle('is-dark-mode')
+        if (theme === THEMES.DARK) {
+            document.body.classList.add('is-dark-mode')
+        }
+
+        if (theme === THEMES.LIGHT && document.body.classList.contains('is-dark-mode')) {
+            document.body.classList.remove('is-dark-mode')
+        }
     }, [theme])
 
     useEffect(() => {
