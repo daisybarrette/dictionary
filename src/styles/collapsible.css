@@ -35,6 +35,10 @@ button.collapsible-title:hover {
     border-radius: var(--border-radius);
 }
 
+.is-dark-mode .collapsible-content {
+    background-color: var(--midnight-blue-70);
+}
+
 .is-expanded.collapsible-content {
     background-color: transparent;
 }
