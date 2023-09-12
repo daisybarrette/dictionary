@@ -39,10 +39,6 @@ body.is-dark-mode {
     background: linear-gradient(18deg, #4b6cb7 0%, #182848 100%);
 }
 
-* {
-    transition: color 500ms ease, background 500ms ease;
-}
-
 #root {
     display: flex;
     flex-direction: column;
