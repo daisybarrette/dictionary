@@ -39,6 +39,10 @@ body.is-dark-mode {
     background: linear-gradient(18deg, #4b6cb7 0%, #182848 100%);
 }
 
+* {
+    transition: color 500ms ease, background 500ms ease;
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -75,8 +79,15 @@ a:focus {
     color: var(--pale-green);
 }
 
+.dark-mode-toggle {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    font-size: 0.8em;
+}
+
 h1 {
-    font-size: 3.3em;
+    font-size: 3em;
 
     line-height: 1.1;
     font-weight: 500;

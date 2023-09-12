@@ -77,17 +77,20 @@ function App() {
 
     return (
         <ThemeContext.Provider value={theme}>
-            <label>
-                <input
-                    type='checkbox'
-                    checked={theme === THEMES.DARK}
-                    onChange={(e) => {
-                        setTheme(e.target.checked ? THEMES.DARK : THEMES.LIGHT);
-                    }}
-                />
-                Use dark mode
-            </label>
-            <h1><a href="/">Dictionary</a></h1>
+            <header>
+                <label className='dark-mode-toggle'>
+                    <input
+                        type='checkbox'
+                        checked={theme === THEMES.DARK}
+                        onChange={(e) => {
+                            setTheme(e.target.checked ? THEMES.DARK : THEMES.LIGHT);
+                        }}
+                    />
+                    Use dark mode
+                </label>
+
+                <h1><a href="/">Dictionary</a></h1>
+            </header>
 
             <main className='glass'>
                 <form
