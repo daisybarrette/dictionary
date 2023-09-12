@@ -1,12 +1,20 @@
 import { useEffect, useState, FormEvent } from 'react'
 
 import fetchDefinition from './functions/fetchDefinition'
+import ThemeContext from './components/ThemeContext'
 import DefinitionCard from './components/DefinitionCard'
 import Spinner from './components/Spinner'
 import Error from './components/Error'
 
 
+const THEMES = {
+    LIGHT: 'light',
+    DARK: 'dark',
+};
+
 function App() {
+    const [theme, setTheme] = useState(THEMES.LIGHT);
+
     const [isFetching, setIsFetching] = useState(false)
     const [hasError, setHasError] = useState(false)
 
@@ -15,6 +23,16 @@ function App() {
     const [definition, setDefintion] = useState({
         word: '',
     })
+
+    useEffect(() => {
+        if (theme === THEMES.DARK) {
+            document.body.classList.add('is-dark-mode')
+        }
+
+        if (theme === THEMES.LIGHT && document.body.classList.contains('is-dark-mode')) {
+            document.body.classList.remove('is-dark-mode')
+        }
+    }, [theme])
 
     useEffect(() => {
         const getDefinition = async () => {
@@ -64,8 +82,21 @@ function App() {
             : DefinitionCard
 
     return (
-        <>
-            <h1><a href="/">Dictionary</a></h1>
+        <ThemeContext.Provider value={theme}>
+            <header>
+                <label className='dark-mode-toggle'>
+                    <input
+                        type='checkbox'
+                        checked={theme === THEMES.DARK}
+                        onChange={(e) => {
+                            setTheme(e.target.checked ? THEMES.DARK : THEMES.LIGHT);
+                        }}
+                    />
+                    Use dark mode
+                </label>
+
+                <h1><a href="/">Dictionary</a></h1>
+            </header>
 
             <main className='glass'>
                 <form
@@ -93,7 +124,7 @@ function App() {
                 <div>by <a href='https://www.daisybarrette.com/'>Daisy Barrette</a> on{' '}
                     <a href='https://github.com/daisybarrette/dictionary'>GitHub</a></div>
             </footer>
-        </>
+        </ThemeContext.Provider>
     )
 }
 

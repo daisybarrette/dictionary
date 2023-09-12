@@ -11,29 +11,32 @@
     --black: #000;
     --white: #fff;
     --claret: #8b1e3f;
-    --highlight: rgba(250, 250, 51, 0.7);
+    --pale-green: #98fb98;
+    --yellow-70: rgba(250, 250, 51, 0.7);
+    --midnight-blue-70: rgba(29, 17, 96, 0.7);
 
     --border-radius: 0.5em;
 }
 
 ::selection {
-    background-color: var(--highlight);
+    background-color: var(--yellow-70);
 }
 
-html {
-    color: var(--black);
-
-    background-color: var(--white);
-    background: url('https://source.unsplash.com/WmnsGyaFnCQ');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-origin: content-box;
-    background-size: cover;
+.is-dark-mode ::selection {
+    background-color: var(--midnight-blue-70);
 }
 
 body {
     margin: 0;
     min-height: 100vh;
+
+    color: var(--black);
+    background: linear-gradient(18deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
+body.is-dark-mode {
+    color: var(--white);
+    background: linear-gradient(18deg, #4b6cb7 0%, #182848 100%);
 }
 
 #root {
@@ -50,12 +53,15 @@ main {
     text-align: center;
 
     border-radius: var(--border-radius);
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
 a {
     color: var(--black);
     text-decoration: underline wavy;
+}
+
+.is-dark-mode a {
+    color: var(--white);
 }
 
 a:hover,
@@ -64,8 +70,20 @@ a:focus {
     text-decoration: underline;
 }
 
+.is-dark-mode a:hover,
+.is-dark-mode a:focus {
+    color: var(--pale-green);
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    font-size: 0.8em;
+}
+
 h1 {
-    font-size: 3.3em;
+    font-size: 3em;
 
     line-height: 1.1;
     font-weight: 500;
@@ -96,10 +114,14 @@ footer {
 }
 
 .glass {
-    background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
     backdrop-filter: blur(0.4rem);
-
+    background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2), -1px -1px 1px var(--white);
+}
+
+.is-dark-mode .glass {
+    background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.01));
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2), -1px -1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .extra-bold {
