@@ -12,7 +12,9 @@
     --white: #fff;
     --claret: #8b1e3f;
     --pale-green: #98fb98;
+    --yellow: rgb(250, 250, 51);
     --yellow-70: rgba(250, 250, 51, 0.7);
+    --midnight-blue: rgb(29, 17, 96);
     --midnight-blue-70: rgba(29, 17, 96, 0.7);
 
     --border-radius: 0.5em;
@@ -77,9 +79,41 @@ a:focus {
 
 .dark-mode-toggle {
     position: absolute;
-    top: 0.2em;
-    left: 0.2em;
     font-size: 0.8em;
+
+    /* Hidden checkbox is 20px */
+    left: calc(1em - 20px);
+    top: 1em;
+}
+
+.dark-mode-toggle input[type='checkbox'] {
+    opacity: 0;
+}
+
+.icon-sun,
+.icon-moon {
+    width: calc(0.8em + 2.5vw);
+    height: calc(0.8em + 2.5vw);
+}
+
+.dark-mode-toggle:focus-within .icon-sun,
+.icon-sun:hover {
+    /* sun yellow */
+    border: 3px dotted #f9ebb2;
+}
+
+.dark-mode-toggle:focus-within .icon-moon,
+.icon-moon:hover {
+    border: 3px dotted var(--midnight-blue);
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 h1 {
@@ -126,4 +160,8 @@ footer {
 
 .extra-bold {
     font-weight: 700;
+}
+
+.hidden {
+    display: none;
 }

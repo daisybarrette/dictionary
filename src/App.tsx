@@ -5,6 +5,8 @@ import ThemeContext from './components/ThemeContext'
 import DefinitionCard from './components/DefinitionCard'
 import Spinner from './components/Spinner'
 import Error from './components/Error'
+import SunIcon from './components/SunIcon'
+import MoonIcon from './components/MoonIcon'
 
 
 const THEMES = {
@@ -92,7 +94,13 @@ function App() {
                             setTheme(e.target.checked ? THEMES.DARK : THEMES.LIGHT);
                         }}
                     />
-                    Use dark mode
+                    {/* Label is hidden visually, but available to screen readers */}
+                    <span className='sr-only'>
+                        {theme === THEMES.LIGHT ? 'Switch to dark mode' : 'Switch to light mode'}
+                    </span>
+
+                    <SunIcon className={`icon-sun ${theme === THEMES.LIGHT ? 'hidden' : 'visible'}`} />
+                    <MoonIcon className={`icon-moon ${theme === THEMES.DARK ? 'hidden' : 'visible'}`} />
                 </label>
 
                 <h1><a href="/">Dictionary</a></h1>
