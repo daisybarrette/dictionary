@@ -131,7 +131,8 @@ h1 a {
     border-radius: var(--border-radius);
 }
 
-h1 a:hover {
+h1 a:hover,
+h1 a:focus {
     text-decoration: none;
     border-bottom: 15px solid currentColor;
     transition: border 200ms ease-in-out;
