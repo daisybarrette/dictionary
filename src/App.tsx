@@ -15,7 +15,11 @@ const THEMES = {
 };
 
 function App() {
-    const [theme, setTheme] = useState(THEMES.LIGHT);
+    const [theme, setTheme] = useState(() => {
+        const saved = localStorage.getItem("userTheme")
+        const initialValue = saved ? JSON.parse(saved) : null
+        return initialValue || THEMES.LIGHT
+    });
 
     const [isFetching, setIsFetching] = useState(false)
     const [hasError, setHasError] = useState(false)
@@ -34,6 +38,8 @@ function App() {
         if (theme === THEMES.LIGHT && document.body.classList.contains('is-dark-mode')) {
             document.body.classList.remove('is-dark-mode')
         }
+
+        localStorage.setItem('userTheme', JSON.stringify(theme));
     }, [theme])
 
     useEffect(() => {
