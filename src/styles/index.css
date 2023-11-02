@@ -29,12 +29,43 @@
     background-color: var(--midnight-blue-70);
 }
 
+/*
+@keyframes FadeIn {
+    from {
+      background: #e3ffe7;
+      background: linear-gradient(18deg, #e3ffe7 0%, #d9e7ff 100%);
+      background-size: 400% 400%;
+      background: linear-gradient(18deg, blue 0%, yellow 100%);
+      background-position: 0% 50%;
+
+
+      background: pink;
+    }
+
+
+    to {
+      background: linear-gradient(18deg, #e3ffe7 0%, #d9e7ff 100%);
+      background-size: 100% 100%;
+      background: linear-gradient(18deg, blue 0%, yellow 100%);
+      background-position: 50% 0%;
+
+      background: yellow;
+    }
+  } */
+
 body {
     margin: 0;
     min-height: 100vh;
 
     color: var(--black);
+
     background: linear-gradient(18deg, #e3ffe7 0%, #d9e7ff 100%);
+    background-size: 100% 100%;
+
+    /* background: linear-gradient(18deg, blue 0%, yellow 100%); */
+
+    /* background: yellow; */
+    /* animation: FadeIn 5s ease-in-out forwards; */
 }
 
 body.is-dark-mode {
@@ -50,12 +81,25 @@ body.is-dark-mode {
     min-height: 100vh;
 }
 
+@keyframes FadeIn {
+    from {
+        background-color: var(--white);
+    }
+
+    to {
+        background-color: transparent;
+    }
+}
+
 main {
     padding: 1em 2em 3em;
     margin-bottom: 1.5em;
     text-align: center;
 
     border-radius: var(--border-radius);
+
+    background-color: transparent;
+    animation: FadeIn 0.5s ease-in-out forwards;
 }
 
 a {

@@ -10,7 +10,7 @@ button.collapsible-title {
     font-family: inherit;
     font-size: inherit;
     font-weight: 500;
-    text-decoration: wavy underline;
+    /* text-decoration: wavy underline; */
     color: var(--black);
 }
 

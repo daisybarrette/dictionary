@@ -10,7 +10,7 @@ export default function CollapsibleContainer({ children }: { children: React.Rea
 
     return (
         <div className="collapsible-container">
-            <button className="collapsible-title" onClick={() => setIsExpanded(!isExpanded)}>{conditionalTitle}</button>
+            <button className="glass collapsible-title" onClick={() => setIsExpanded(!isExpanded)}>{conditionalTitle}</button>
 
             <div className={classNameForContent}>
                 {isExpanded && children}
